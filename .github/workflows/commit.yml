@@ -1,8 +1,8 @@
-name: Daily Auto Commit
+const commitYml = `name: Daily Auto Commit
 
 on:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '0 ${cronHour} * * *'
   workflow_dispatch:
 
 jobs:
@@ -10,15 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${branch}
 
       - name: Make multiple commits with random messages
         run: |
-          MESSAGES=("💻 Coding hard" "🚀 Learning daily" "🔥 Building future" "🤖 Keep grinding" "📚 Practice makes perfect" "💡 Keep pushing forward!")
-          for i in {1..2}
+          MESSAGES=(${messages.map(m => `"${m}"`).join(" ")})
+          for i in {1..${commitsPerDay}}
           do
             echo "Commit $i at $(date)" >> activity.txt
             git add activity.txt
-            RANDOM_MSG=${MESSAGES[$RANDOM % 6]}
-            git commit -m "$RANDOM_MSG" || true
+            RANDOM_MSG=\${MESSAGES[$RANDOM % ${messages.length}]}
+            git commit -m "\$RANDOM_MSG" || true
           done
           git push
+`;

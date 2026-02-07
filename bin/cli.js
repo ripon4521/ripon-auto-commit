@@ -52,7 +52,7 @@ async function getAIQuote() {
     const data = await res.json();
     return `💡 ${data.content} — ${data.author}`;
   } catch (err) {
-    return "💡 Keep pushing forward!"; // fallback
+    return "💡 Keep pushing forward!"; 
   }
 }
 
@@ -69,7 +69,7 @@ const repoPath = process.cwd();
 fs.ensureDirSync(path.join(repoPath, ".github/workflows"));
 
 // -------- commit.yml --------
-const cronTimeUTC = (parseInt(commitTime) - 6 + 24) % 24; // BD to UTC
+const cronTimeUTC = (parseInt(commitTime) - 6 + 24) % 24; 
 const cronHour = cronTimeUTC;
 
 const commitYml = `name: Daily Auto Commit
