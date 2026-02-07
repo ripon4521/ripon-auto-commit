@@ -1,78 +1,52 @@
-#  Ripon Auto Commit
-
-Automatically makes daily commits to your GitHub repository to keep your streak alive!  
-Supports **multiple commits per day**, **custom branch**, and **optional AI-generated commit messages**.
-
----
-
-## 📦 Installation
-
-No installation required! Run directly with **npx**:
-
-```bash
-npx ripon-auto-commit
-
-
-🛠 Features
-
-✅ Daily auto commits
-
-✅ Multiple commits per day
-
-✅ Custom commit hour
-
-✅ Optional AI-generated quotes for commit messages
-
-✅ Branch selection for commits
-
-✅ Public & ready to use with npx
-
-
-⚙️ CLI Usage
-
-When you run:
-
-npx ripon-auto-commit
-
-
-You will be prompted for:
-
-Number of commits per day
-Example: 2
-
-Commit hour (0-23, Bangladesh time)
-Example: 20 for 8 PM
-
-Optional AI-generated quotes
-Example: Yes or No
-
-Branch to commit to
-Example: main or dev
-
-After finishing, the workflow will automatically:
-
-Update activity.txt with the commit timestamp
-
-Push commits to your chosen branch daily
-
-📂 Files Created
-
-.github/workflows/commit.yml → GitHub Actions workflow
-
-activity.txt → keeps track of commits
-
-📝 Notes
-
-Make sure GitHub Actions Read/Write permissions are enabled for the repository
-
-You can change the workflow later if needed
-
-Fully public, anyone can run using npx ripon-auto-commit
-
-💡 Example
-npx ripon-auto-commit
-? How many commits per day do you want? 2
-? Enter commit hour in 24h format (0-23, Bangladesh time): 20
-? Do you want optional AI-generated quotes? Yes
-? Which branch should commits be pushed to? main
-✅ GitHub auto commit workflow setup complete!
+START
+  |
+  v
+[Step 1: GitHub Repo Ready?]
+  - create new GitHub repo  or use existing repo 
+  - branch ready  (main or another)
+  |
+  v
+[Step 2: Run CLI]
+  - Terminal/PowerShell/Command Prompt:
+      npx ripon-auto-commit
+  - Interactive prompts:
+      1️⃣ How many commits per day?
+      2️⃣ Commit hour (0-23, Bangladesh time)
+      3️⃣ Optional AI-generated commit messages? (Yes/No)
+      4️⃣ Branch to push commits to
+  |
+  v
+[Step 3: Workflow Setup]
+  - CLI automatically:
+      - Creates `.github/workflows/commit.yml`
+      - Creates `activity.txt`
+      - Sets commit schedule & branch
+  |
+  v
+[Step 4: Enable GitHub Actions Permissions]
+  - Go to Repo → Settings → Actions → General → Workflow permissions
+  - Select: ✅ "Read and write permissions"
+  - Save changes
+  |
+  v
+[Step 5: Daily Commits Start]
+  - GitHub Actions will:
+      - Commit to selected branch daily
+      - Use AI-generated messages (optional)
+      - Track in activity.txt
+  |
+  v
+[Step 6: Verify]
+  - Go to GitHub → Actions tab → check workflow runs
+  - Check commit history in selected branch
+  |
+  v
+[OPTIONAL: Modify Settings]
+  - Edit `.github/workflows/commit.yml` for:
+      - Commit hour
+      - Branch
+      - Frequency
+  - Run CLI again for new repo/settings
+  |
+  v
+END
