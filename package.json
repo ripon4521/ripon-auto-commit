@@ -5,6 +5,7 @@
   "bin": {
     "ripon-auto-commit": "./bin/cli.js"
   },
+  "private": false,
   "dependencies": {
     "fs-extra": "^11.3.3",
     "inquirer": "^9.3.8",
