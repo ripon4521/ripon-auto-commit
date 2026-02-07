@@ -24,10 +24,17 @@ const answers = await inquirer.prompt([
     name: "useAIQuote",
     message: "Do you want optional AI-generated quotes?",
     default: true
+  },
+  {
+    type: "input",
+    name: "branch",
+    message: "Which branch do you want the auto commit on?",
+    default: "main"
   }
 ]);
 
-const { commitsPerDay, commitTime, useAIQuote } = answers;
+const { commitsPerDay, commitTime, useAIQuote, branch } = answers;
+
 
 // -------- Random Messages --------
 const baseMessages = [
