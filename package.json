@@ -1,0 +1,14 @@
+{
+  "name": "ripon-auto-commit",
+  "version": "1.0.0",
+  "description": "CLI tool to setup GitHub daily commit automation with random messages, multiple commits, custom time, and optional AI quotes",
+  "bin": {
+    "ripon-auto-commit": "./bin/cli.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.3",
+    "inquirer": "^9.3.8",
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
+}

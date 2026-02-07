@@ -1,0 +1,24 @@
+name: Daily Auto Commit
+
+on:
+  schedule:
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make multiple commits with random messages
+        run: |
+          MESSAGES=("💻 Coding hard" "🚀 Learning daily" "🔥 Building future" "🤖 Keep grinding" "📚 Practice makes perfect" "💡 Keep pushing forward!")
+          for i in {1..2}
+          do
+            echo "Commit $i at $(date)" >> activity.txt
+            git add activity.txt
+            RANDOM_MSG=${MESSAGES[$RANDOM % 6]}
+            git commit -m "$RANDOM_MSG" || true
+          done
+          git push
